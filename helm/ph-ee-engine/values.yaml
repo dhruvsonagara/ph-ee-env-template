@@ -192,7 +192,7 @@ channel:
   enabled: true
   replicas: 1
   image: ""
-  imageTag: "v1.3.1"
+  imageTag: "v1.4.0"
   imagePullPolicy: "Always"
   SPRING_PROFILES_ACTIVE: ""
   LOGGING_LEVEL_ROOT: "INFO"
@@ -603,7 +603,7 @@ importer_es:
   enabled: true
   replicas: 1
   image: ""
-  imageTag: "v1.3.0"
+  imageTag: "v1.3.1"
   imagePullPolicy: "Always"
   importer_elasticsearch_url: "http://ph-ee-elasticsearch:9200/"
   reporting:
@@ -695,7 +695,7 @@ connector_bulk:
   enabled: false
   replicas: 1
   image: ""
-  imageTag: "v1.4.0"
+  imageTag: "v1.4.1"
   imagePullPolicy: "Always"
   SPRING_PROFILES_ACTIVE: "default"
   camel_disable_ssl: true
@@ -725,9 +725,9 @@ connector_bulk:
       enable: true
     backpressure:
       enable: false
-    success_threshold_check:
+    completion_threshold_check:
       enable: true
-      success_rate: 95
+      completion_rate: 95
   aws:
     region: "us-east-2"
     access_key: "AKIAX32JM37TZOJ5AKFB"
