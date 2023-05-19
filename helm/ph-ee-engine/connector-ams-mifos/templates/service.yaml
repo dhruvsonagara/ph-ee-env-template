@@ -9,7 +9,7 @@ spec:
     - name: port
       port: 80
       protocol: TCP
-      targetPort: 8080
+      targetPort: 5000
   selector:
     app: ph-ee-connector-ams-mifos
   sessionAffinity: None
