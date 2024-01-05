@@ -1,13 +1,17 @@
-{{/*apiVersion: v1*/}}
-{{/*kind: Pod*/}}
-{{/*metadata:*/}}
-{{/*  name: "g2p-sandbox-test-ams"*/}}
-{{/*  labels:*/}}
-{{/*    app: "integration-test-ams"*/}}
-{{/*  annotations:*/}}
-{{/*    "helm.sh/hook": test-success*/}}
-{{/*spec:*/}}
-{{/*  containers:*/}}
+apiVersion: v1
+kind: Pod
+metadata:
+  name: "g2p-sandbox-test-ams"
+  labels:
+    app: "integration-test-ams"
+  annotations:
+    "helm.sh/hook": test-success
+spec:
+  containers:
+    - name: my-container-2
+      image: nginx:latest
+      ports:
+        - containerPort: 8082
 {{/*  - name: integration-test-ams*/}}
 {{/*    image: docker.io/openmf/ph-ee-integration-test:v1.4.0-rc.2*/}}
 {{/*    imagePullPolicy: "Always"*/}}
