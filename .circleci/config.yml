@@ -312,12 +312,12 @@ workflows:
             - AWS
             - Helm
             - slack
-#      - helm-test-ams:
-#          cluster-name: sit
-#          requires:
-#            - helm-test-gov
-#          context:
-#            - AWS
-#            - Helm
-#            - slack
+      - helm-test-ams:
+          cluster-name: sit
+          requires:
+            - helm-test-gov
+          context:
+            - AWS
+            - Helm
+            - slack
 

@@ -8,22 +8,18 @@ metadata:
     "helm.sh/hook": test-success
 spec:
   containers:
-    - name: my-container-2
-      image: nginx:latest
-      ports:
-        - containerPort: 8082
-{{/*  - name: integration-test-ams*/}}
-{{/*    image: docker.io/openmf/ph-ee-integration-test:v1.4.0-rc.2*/}}
-{{/*    imagePullPolicy: "Always"*/}}
-{{/*    command: [ "/bin/bash" , "-c" ]*/}}
-{{/*    args:*/}}
-{{/*    # - ./gradlew test -Dcucumber.filter.tags="@bd012" ; echo 'Test complete' ; sleep 300 ; echo 'pod terminate'*/}}
-{{/*    - ./gradlew test -Dcucumber.filter.tags="@amsIntegration" ; echo 'Test complete' ; sleep 300 ; echo 'pod terminate'*/}}
-{{/*    resources:*/}}
-{{/*        limits:*/}}
-{{/*          cpu: "500m"*/}}
-{{/*          memory: "3Gi"*/}}
-{{/*        requests:*/}}
-{{/*          cpu: "100m"*/}}
-{{/*          memory: "2Gi"*/}}
-{{/*  restartPolicy: Never*/}}
+  - name: integration-test-ams
+    image: docker.io/openmf/ph-ee-integration-test:v1.4.0-rc.2
+    imagePullPolicy: "Always"
+    command: [ "/bin/bash" , "-c" ]
+    args:
+    # - ./gradlew test -Dcucumber.filter.tags="@bd012" ; echo 'Test complete' ; sleep 300 ; echo 'pod terminate'
+    - ./gradlew test -Dcucumber.filter.tags="@amsIntegration" ; echo 'Test complete' ; sleep 300 ; echo 'pod terminate'
+    resources:
+        limits:
+          cpu: "500m"
+          memory: "3Gi"
+        requests:
+          cpu: "100m"
+          memory: "2Gi"
+  restartPolicy: Never
