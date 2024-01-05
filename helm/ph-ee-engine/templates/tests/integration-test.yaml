@@ -3,7 +3,7 @@ kind: Pod
 metadata:
   name: "g2p-sandbox-test-connection"
   labels:
-    app: "integration-test"
+    app: "integration-test-gov"
   annotations:
     "helm.sh/hook": test-success
 spec:
@@ -14,7 +14,7 @@ spec:
     command: [ "/bin/bash" , "-c" ]
     args: 
     # - ./gradlew test -Dcucumber.filter.tags="@bd012" ; echo 'Test complete' ; sleep 300 ; echo 'pod terminate'
-    - ./gradlew test -Dcucumber.filter.tags="@gov" ; echo 'Test complete' ; sleep 300 ; echo 'pod terminate'    
+    - ./gradlew test -Dcucumber.filter.tags="@gov" ; echo 'Test complete' ; sleep 300 ; echo 'pod terminate'
     env:
       {{- define "inttest.env" }}
       - name: "OPERATIONS_APP_CONTACTPOINT"

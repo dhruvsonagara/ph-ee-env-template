@@ -3,7 +3,7 @@ kind: Pod
 metadata:
   name: "g2p-sandbox-test-ams"
   labels:
-    app: "integration-test"
+    app: "integration-test-ams"
   annotations:
     "helm.sh/hook": test-success
 spec:
