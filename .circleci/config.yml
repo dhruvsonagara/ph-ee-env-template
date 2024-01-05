@@ -205,7 +205,7 @@ jobs:
       - run:
           name: Run Helm Tests
           command: |
-            helm test g2p-sandbox --namespace paymenthub || echo test
+            helm test --filter g2p-sandbox-test-connection --namespace paymenthub || echo test
       - run:
           name: Fetch Integration Test Report
           command: |
@@ -223,23 +223,12 @@ jobs:
             done
             echo "File is no longer empty, processing..."
             # kubectl cp paymenthub/`kubectl get pods -n paymenthub | grep g2p-sandbox-test-connection |cut -d " " -f1`:/ph-ee-connector-integration-test/build integration_report/test-report
-        # - run:
-        #     name: Fetch Integration Test Report
-        #     command: |
-        #       kubectl cp -n $KUBE_NAMESPACE <pod-name>:<path-to-report-file> ./integration_report  # Replace <pod-name> and <path-to-report-file>
-      # - run:
-      #     name: List Contents of Integration Report Directory
-      #     command: |
-      #       ls -l /tmp/integration_report
+
       - store_test_results:
           path: integration_report/test-report/cucumber.xml
       - store_artifacts:
           path: integration_report/test-report/reports/tests/test
-          # path: integration_report/test-report/reports/tests/test
-      # - store_test_results:
-      #     path: integration_reports/test-report/cucumber.xml
-      # - store_artifacts:
-      #     path: ph-ee-integration-test/build/reports/tests/test
+
 workflows:
   deploy:
     jobs:
