@@ -315,7 +315,7 @@ workflows:
       - helm-test-ams:
           cluster-name: sit
           requires:
-            - docker-image-availability-check-and-upgrade
+            - helm-test-gov
           context:
             - AWS
             - Helm
