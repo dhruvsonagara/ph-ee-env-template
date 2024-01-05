@@ -98,4 +98,3 @@ spec:
           cpu: "100m"
           memory: "2Gi"
   restartPolicy: Never
-
