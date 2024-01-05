@@ -205,7 +205,7 @@ jobs:
       - run:
           name: Run Helm Tests
           command: |
-            helm test --filter g2p-sandbox-test-connection --namespace paymenthub || echo test
+            helm test g2p-sandbox-test-connection --namespace paymenthub || echo test
       - run:
           name: Fetch Integration Test Report
           command: |
