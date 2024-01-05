@@ -304,7 +304,7 @@ workflows:
             - slack
           requires:
             - build-host-g2p-fyn-chart
-      - helm-test:
+      - helm-test-gov:
           cluster-name: sit
           requires:
             - docker-image-availability-check-and-upgrade
@@ -312,3 +312,12 @@ workflows:
             - AWS
             - Helm
             - slack
+      - helm-test-ams:
+          cluster-name: sit
+          requires:
+            - docker-image-availability-check-and-upgrade
+          context:
+            - AWS
+            - Helm
+            - slack
+
