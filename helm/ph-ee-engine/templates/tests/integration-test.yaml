@@ -16,7 +16,6 @@ spec:
     # - ./gradlew test -Dcucumber.filter.tags="@bd012" ; echo 'Test complete' ; sleep 300 ; echo 'pod terminate'
     - ./gradlew test -Dcucumber.filter.tags="@gov" ; echo 'Test complete' ; sleep 300 ; echo 'pod terminate'
     env:
-{{/*      {{- define "inttest.env" }}*/}}
       - name: "OPERATIONS_APP_CONTACTPOINT"
         value: "http://ph-ee-operations-app:80"
       - name: "BULK_PROCESSOR_CONTACTPOINT"
@@ -63,7 +62,6 @@ spec:
         value: "http://ph-ee-vouchers:80"
       - name: GLOBAL_WAIT_TIME_MS
         value: "10000"
-{{/*      {{- end }}*/}}
     resources:
         limits:
           cpu: "500m"
