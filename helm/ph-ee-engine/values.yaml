@@ -37,12 +37,12 @@ camunda-platform:
     identity:
       auth:
         enabled: false
-
-prometheusServiceMonitor:
-  ## @param prometheusServiceMonitor.enabled if true then a service monitor will be deployed, which allows an installed prometheus controller to scrape metrics from the deployed pods
-  enabled: false
+  prometheusServiceMonitor:
+    ## @param prometheusServiceMonitor.enabled if true then a service monitor will be deployed, which allows an installed prometheus controller to scrape metrics from the deployed pods
+    enabled: true
 
   zeebe:
+
     enabled: true
     env:
       #    - name: ZEEBE_BROKER_BACKPRESSURE_ENABLED
@@ -85,6 +85,7 @@ prometheusServiceMonitor:
         value: 'false'
       - name: ZEEBE_BROKER_EXPORTERS_KAFKA_ARGS_INDEX_CREATETEMPLATE
         value: 'false'
+
 
     extraInitContainers:
       - name: init-ph-ee-kafka-exporter
